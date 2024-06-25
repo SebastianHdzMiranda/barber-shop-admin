@@ -31,7 +31,7 @@ function Registros({ showData, setShowData, data }) {
                             <p className='table__th'>Nombre</p>
                             <p className='table__th'>Venta</p>
                             <p className='table__th'>Precio</p>
-                            {/* <p className='table__th'>Fecha</p> */}
+                            <p className='table__th'>Pago</p>
                             <p className='table__th'>Hora</p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ function Registros({ showData, setShowData, data }) {
                                         <span>{registro.Venta}</span>
                                     </p>
                                     <p className="table__td">${registro.Precio}</p>
-                                    {/* <p className="table__td">{registro.Fecha}</p> */}
+                                    <p className="table__td">{registro.Pago}</p>
                                     <p className="table__td">{registro.Hora}</p>
                                 </div>
                             )}

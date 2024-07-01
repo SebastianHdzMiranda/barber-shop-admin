@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { formatDate } from '../helpers';
 import { users } from '../data/db';
+// import { deleteSale } from '../services/api';
 
 function Registros({ showData, setShowData, data }) {
 
@@ -15,13 +16,13 @@ function Registros({ showData, setShowData, data }) {
     };
     // Sumar los precios
     const sumaPrecios = useMemo(()=> showData.reduce( (total, registro) => total + (+registro.Precio) , 0), [showData]);
-
+ 
     return (
         <>
             <div className="dashboard__buttons">
                 <button className='dashboard__button' type='button' onClick={() => handleUsers()}>Todos</button>
                 {users.map( (user, i) => 
-                    <button key={i} className='dashboard__button' type='button' onClick={() => handleUsers(user.name)}>{user.name}</button>
+                    <button key={i} className='dashboard__button' onClick={() => handleUsers(user.name)}>{user.name}</button>
                 )}
             </div>
             <div className="dashboard__grid">
@@ -36,8 +37,8 @@ function Registros({ showData, setShowData, data }) {
                         </div>
                     </div>
                         <div className='table__body table-responsive'>
-                            {showData.map( registro => 
-                                <div className='table__trBody ' key={registro.Id}>
+                            {showData.map( (registro, i) => 
+                                <div className='table__trBody' key={i}>
                                     <p className="table__td">{registro.Nombre}</p>
                                     <p className="table__td table__td--venta">
                                         <img className='table__img' src={`./${registro.Imagen}.png`} alt="ventaImg" />

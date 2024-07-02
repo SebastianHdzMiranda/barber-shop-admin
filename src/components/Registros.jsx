@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { formatDate } from '../helpers';
 import { users } from '../data/db';
-import circleX from '../../public/circleX.svg'
+import circleX from '/circleX.svg'
 import { deleteSale, readSale } from '../services/api';
 import Swal from 'sweetalert2'
 
@@ -38,21 +38,39 @@ function Registros({ showData, setShowData, data, setData }) {
             cancelButtonColor: "#dc2626",
             confirmButtonText: "¡Si, enviar!",
             cancelButtonText: "¡No, cancelar!",
+            preConfirm: async() => {
+
+                try {
+                    const result = await deleteSale(registro.Id);; 
+                    if (Object.keys(result)[0] === 'error') {
+                        throw new Error('No se enviaron los datos');
+                    } else {
+                        return result;
+                    }                    
+                } catch (error) {
+                    Swal.showValidationMessage(`
+                        Request failed: ${error}
+                    `);
+                }
+            }          
 
         });
-        if (resultado.isConfirmed) {
-            
-            // // Enviar datos a la api
-            // await addSale(data); 
-            
-            // location.reload();
-            await deleteSale(registro.Id);
-    
-            const dataRead = await readSale();
-            // Almacenar datos del dia
-            const dataNow = dataRead.filter( registro => registro.Fecha === formatDate(Date.now()));
-            setShowData(dataNow);
-            setData(dataNow);
+        if (resultado.isConfirmed) {            
+            const alertSuccess = Swal.fire({
+                title: "Eliminado!",
+                text: "Se eliminó el registro correctamente.",
+                icon: "success",
+                confirmButtonText: 'Ok'
+            });
+
+            if ((await alertSuccess).isConfirmed || (await alertSuccess).dismiss) {
+                const dataRead = await readSale();
+                // Almacenar datos del dia
+                const dataNow = dataRead.filter( registro => registro.Fecha === formatDate(Date.now()));
+                setShowData(dataNow);
+                setData(dataNow);
+            }
+
         }
 
     }

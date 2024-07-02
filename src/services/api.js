@@ -10,24 +10,31 @@ export async function readSale() {
     
 }
 
-// export function deleteSale(id) {
+export async function deleteSale(id) {
       
-//     store
-//     .delete("hoja1", {
-//         search: { Id: id },
-//         limit: 1
-//     })
-//     .then(res => {
-//         console.log(res);
-//         location.reload();
-//     });
+    // store
+    // .delete("hoja1", {
+    //     search: { Id: id },
+    //     limit: 1
+    // })
+    // .then(res => {
+    //     console.log(res);
+    //     location.reload();
+    // });
 
-//     // store
-//     // .delete("hoja1", {
-//     //     search: { Nombre: "barbero2" },
-//     //     limit: 80
-//     // })
-//     // .then(res => {
-//     //     console.log(res);
-//     // });
-// }
+    const respuesta = await store.delete("hoja1", {
+        search: { Id: id },
+        limit: 1
+    });
+    return respuesta;
+
+
+    // store
+    // .delete("hoja1", {
+    //     search: { Nombre: "barbero2" },
+    //     limit: 80
+    // })
+    // .then(res => {
+    //     console.log(res);
+    // });
+}

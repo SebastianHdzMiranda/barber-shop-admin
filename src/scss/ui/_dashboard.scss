@@ -4,13 +4,13 @@
 .dashboard {
     padding-block: 5rem;
 
-    .dashboard__buttons {
+    &__buttons {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
         padding-bottom: 1rem;    
     }
-    .dashboard__button {
+    &__button {
         padding: .5rem 3rem;
         cursor: pointer;
         background-color: #e2d68cb7;
@@ -19,13 +19,13 @@
         border-radius: 2rem;
     }
     
-    .dashboard__btnContent {
+    &__btnContent {
         display: flex;
         justify-content: center;   
         margin-bottom: 2rem;
     }
 
-    .dashboard__btnRegister {
+    &__btnRegister {
         padding: 2rem 5rem;
         cursor: pointer;
         background-color: v.$dorado;
@@ -35,15 +35,15 @@
         border-radius: 1rem;
     }
 
-    .dashboard__grid {
+    &__grid {
 
     }
 
-    .dashboard__total {
+    &__total {
         text-align: end;
         // font-size: 2rem;
     }
-    .dashboard__total-price {
+    &__total-price {
         font-size: 2.5rem;
         font-weight: 700;
     }
@@ -52,20 +52,24 @@
 .table {
     // width: 100%;
     max-width: 80rem;
+    overflow-x: auto;
+
     margin-inline: auto;
     border: 1px solid v.$blanco;
 
-    .table__head {
+    &__head {
         border-bottom: 1px solid v.$blanco;
+        min-width: 38rem;
+
     }
-    .table__headRow {
+    &__headRow {
         display: flex;
         justify-content: space-between;
         align-items: center;
         text-align: center;
         padding-right: 1rem;
     }
-    .table__th {
+    &__th {
         width: 10rem;
         font-weight: bold;
         font-size: 1.4rem;
@@ -77,11 +81,13 @@
 
     }
 
-    .table__body {
+    &__body {
         max-height: 40rem;
         overflow: auto;
+        min-width: 38rem;
+        // overflow-x: scroll;
     }
-    .table__trBody {
+    &__trBody {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -90,26 +96,58 @@
         border-bottom: 1px solid v.$blanco;
       
     }
-    .table__td {
+    &__td {
         width: 10rem;
-        &--venta {
-        }
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-
-    .table__img {
+    
+    &__img {
         width: 5rem;
         margin: 0 auto;
     }
 
+    &__btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    &__delete {
+        color: #EF4444;
+        width: 3rem;
+    }
 
 }
 
+.alert {
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
 
+    &__texto {
+        // font-weight: 00;
+        // background-color: #e2d68cb7;
+        // border-radius: 10px;
+        // color: #555;
+        padding: 1.5rem 4rem;
+        font-size: 2rem;
+        // letter-spacing: 1px;
+    }
+}
+
+.modal {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /* Contenedor para aplicar el estilo personalizado de scrollbar */
-.table-responsive::-webkit-scrollbar {
+.table::-webkit-scrollbar, .table-responsive::-webkit-scrollbar {
     width: .5rem;
     height: .5rem;
     @include m.tablet {
@@ -119,16 +157,12 @@
     }
 }
 
-.table-responsive::-webkit-scrollbar-track {
-    // background: #f1f1f1; /* Color del track (pista) */
-}
-
-.table-responsive::-webkit-scrollbar-thumb {
+.table::-webkit-scrollbar-thumb, .table-responsive::-webkit-scrollbar-thumb {
     background: #888; /* Color del thumb (deslizador) */
     border-radius: 10px; /* Bordes redondeados del deslizador */
     width: .2rem;
 }
 
-.table-responsive::-webkit-scrollbar-thumb:hover {
+.table::-webkit-scrollbar-thumb:hover, .table-responsive::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color del deslizador al pasar el mouse */
 }

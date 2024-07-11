@@ -1,5 +1,7 @@
 const store = new SteinStore(
     "https://api.steinhq.com/v1/storages/667a35d14d11fd04f00c2cb3"
+
+    // Api de sebastian
     // 'https://api.steinhq.com/v1/storages/666889cf4d11fd04f0028679'
 );
 
@@ -37,4 +39,16 @@ export async function deleteSale(id) {
     // .then(res => {
     //     console.log(res);
     // });
+}
+
+
+export async function consumirAsistencias() {
+
+    const [response1, response2] = await Promise.all([
+        store.read("entrada", { limit: 1000 }),
+        store.read("salida", { limit: 1000 }),
+    ]);
+
+    return { response1, response2};
+
 }

@@ -24,7 +24,7 @@ function Dashboard() {
     }, []);
 
     return (
-        <div className='dashboard contenedor'>
+        <div className='dashboard'>
                        
             {data.length > 0 ?
                 <Registros 

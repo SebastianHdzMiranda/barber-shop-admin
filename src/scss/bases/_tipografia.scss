@@ -30,7 +30,7 @@ a {
     text-decoration: none;
     font-family: v.$fuentePrincipal;
 }
-p, span, button {
+p, span, button, a {
     font-size: 1.3rem;
 
     @include m.tablet {

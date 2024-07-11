@@ -2,15 +2,11 @@
 @use '../bases/mixins' as m;
 
 .logoContainer {
-    text-align: center;
-    padding-block: 4rem;
+    // padding-block: 4rem;
     .logo-enlace {
         display: inline-block;
     }
-
     .logo {
-        // margin: 4rem auto 0 auto;
-        // margin-top: 5rem;
-        width: 25rem;
+        width: 17rem;
     }
 }

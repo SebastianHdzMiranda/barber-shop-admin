@@ -99,21 +99,21 @@ function Registros({ showData, setShowData, data, setData }) {
                             <p className='table__th'></p>
                         </div>
                     </div>
-                        <div className='table__body table-responsive'>
-                            {showData.map( (registro, i) => 
-                                <div className='table__trBody' key={i}>
-                                    <p className="table__td">{registro.Nombre}</p>
-                                    <p className="table__td table__td--venta">
-                                        <img className='table__img' src={`./${registro.Imagen}.png`} alt="ventaImg" />
-                                        <span>{registro.Venta}</span>
-                                    </p>
-                                    <p className="table__td">${registro.Precio}</p>
-                                    <p className="table__td">{registro.Pago}</p>
-                                    <p className="table__td">{registro.Hora}</p>
-                                    <button className="table__td table__btn" onClick={() => handleDelete(registro)}><img className='table__delete' src={circleX} alt="" /></button>
-                                </div>
-                            )}
-                        </div>
+                    <div className='table__body table-responsive'>
+                        {showData.map( (registro, i) => 
+                            <div className='table__trBody' key={i}>
+                                <p className="table__td">{registro.Nombre}</p>
+                                <p className="table__td table__td--venta">
+                                    <img className='table__img' src={`./${registro.Imagen}.png`} alt="ventaImg" />
+                                    <span>{registro.Venta}</span>
+                                </p>
+                                <p className="table__td">${registro.Precio}</p>
+                                <p className="table__td">{registro.Pago}</p>
+                                <p className="table__td">{registro.Hora}</p>
+                                <button className="table__td table__btn" onClick={() => handleDelete(registro)}><img className='table__delete' src={circleX} alt="" /></button>
+                            </div>
+                        )}
+                    </div>
 
                 </div>
                 <p className='dashboard__total'>Total del Dia {formatDate(Date.now())}: <span className='dashboard__total-price'>${sumaPrecios}</span></p>

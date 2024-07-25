@@ -1,5 +1,6 @@
 export const users = [
-    { name: 'Yael'},
-    { name: 'Jesus'},
-    { name: 'Liam'},
+    { name: 'BarberoA'},
+    { name: 'BarberoB'},
+    { name: 'BarberoC'},
+    { name: 'BarberoD'},
 ]

@@ -116,7 +116,7 @@ function Registros({ showData, setShowData, data, setData }) {
                     </div>
 
                 </div>
-                <p className='dashboard__total'>Total del Dia {formatDate(Date.now())}: <span className='dashboard__total-price'>${sumaPrecios}</span></p>
+                <p className='dashboard__total'>Total del Día {formatDate(Date.now())}: <span className='dashboard__total-price'>${sumaPrecios}</span></p>
             </div>
             
         </>

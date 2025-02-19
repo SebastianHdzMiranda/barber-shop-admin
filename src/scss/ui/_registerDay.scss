@@ -4,6 +4,11 @@
 .registerDay {
     border: 1px solid v.$blanco;
     padding: 2rem;
+    max-height: 30rem;
+    overflow: scroll;
+    @include m.tablet{
+        max-height: 35rem;
+    }
     &__fecha {
 
     }
